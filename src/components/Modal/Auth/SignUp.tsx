@@ -3,17 +3,14 @@ import { Button, Flex, Input, Text } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { useSetRecoilState } from 'recoil';
 
-type loginProps = {
+const SignUp:React.FC = () => {
     
-};
-
-const login:React.FC<loginProps> = () => {
-
     const setAuthModalState = useSetRecoilState(authModalState);
 
-    const [loginForm, setLoginForm] = useState({
+    const [signUpForm, setSignUpForm] = useState({
         email: "",
         password: "",
+        confirmPassword: "",
     });
 
     const onSubmit = () => {
@@ -21,7 +18,7 @@ const login:React.FC<loginProps> = () => {
     };
 
     const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setLoginForm(prev => ({
+        setSignUpForm(prev => ({
             ...prev,
             [event.target.name]: event.target.value,
         }));
@@ -73,11 +70,33 @@ const login:React.FC<loginProps> = () => {
           onChange={() => {}}
           required
         />
+        <Input
+          name="confirmPassword"
+          placeholder="confirm password"
+          type="password"
+          mb={2}
+          fontSize="10pt"
+          _placeholder={{ color: "gray.500" }}
+          _hover={{
+            bg: "white",
+            border: "1px solid",
+            borderColor: "blue.500",
+          }}
+          _focus={{
+            outline: "none",
+            bg: "white",
+            border: "1px solid",
+            borderColor: "blue.500",
+          }}
+          bg="gray.50"
+          onChange={() => {}}
+          required
+        />
         <Button type="submit" width="100%" height="36px" mt={2} mb={2}>
-          Log In
+          Sign Up
         </Button>
         <Flex fontSize="9pt" justifyContent="center">
-          <Text mr={1}>New Here?</Text>
+          <Text mr={1}>Already a Redditor?</Text>
           <Text
             color="blue.500"
             fontWeight={700}
@@ -85,14 +104,14 @@ const login:React.FC<loginProps> = () => {
             onClick={() =>
               setAuthModalState((prev) => ({
                 ...prev,
-                view: "signup",
+                view: "login",
               }))
             }
           >
-            SIGN UP
+            LOG IN
           </Text>
         </Flex>
       </form>
     );
 }
-export default login;
+export default SignUp;

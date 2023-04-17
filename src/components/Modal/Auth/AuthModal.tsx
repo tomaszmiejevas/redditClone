@@ -22,13 +22,13 @@ const AuthModal:React.FC = () => {
         <Modal isOpen={modalState.open} onClose={handleClose}>
             <ModalOverlay />
             <ModalContent>
-                <ModalHeader>
+                <ModalHeader textAlign="center">
                     {modalState.view === "login" && "Login"}
                     {modalState.view === "signup" && "Sign Up"}
                 </ModalHeader>
                 <ModalCloseButton />
-                <ModalBody display='flex' flexDirection='column' alignItems='center' justifyContent='center'>
-                    <Flex direction='column' align='center' justify='center' width='70%' border="1px solid red">
+                <ModalBody display='flex' flexDirection='column' alignItems='center' justifyContent='center' pb={6}>
+                    <Flex direction='column' align='center' justify='center' width='70%'>
                         {/* <OAuthButton />*/
                         <AuthInputs />
                         /*<ResetPassword /> */}
