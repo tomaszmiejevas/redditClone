@@ -13,7 +13,7 @@ const Navbar:React.FC<NavbarProps> = () => {
             </Flex>
             <SearchInput />
             {/* <Directory />*/}
-            <RightContent />
+            <RightContent user={user}/>
         </Flex>
     )
 }
